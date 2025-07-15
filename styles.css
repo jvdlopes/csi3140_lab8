@@ -17,3 +17,20 @@ button{
     background: blue;
     color: white;
 }
+
+table{
+    border-collapse: collapse;
+}
+
+td{
+    border-bottom: 1px solid rgb(199, 199, 199);
+}
+
+tr:first-child{
+    background: blue;
+    color: white;
+}
+
+th,td{
+    padding-right: 50px;
+}

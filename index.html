@@ -9,26 +9,46 @@
     <h1>Restaurant Menu and Orders</h1>
     <form action="">
         <h2>Edit Dish Price</h2>
-        <input type="text" placeholder="Dish ID">
-        <input type="text" placeholder="Price">
+        <input type="text" placeholder="Dish ID" id="dishID">
+        <input type="text" placeholder="Price" id="priceID">
         <button>Update Price</button>
     </form>
     
     <form action="">
         <h2>Place an Order</h2>
-        <input type="text" placeholder="Customer Name">
-        <select name="" id="">
+        <input type="text" placeholder="Customer Name" id="customerName">
+        <select name="" id="selectedDish">
             <option style="display: none;" selected value="">Selected Dish</option>
             <option value="">fries</option>
         </select>
-        <input type="text" placeholder="Quantity">
+        <input type="text" placeholder="Quantity" id="quantityID">
         <button>Place Order</button>
     </form>
     
     <h2>Order History</h2>
-    <div></div>
+    <table id="tableID">
+        <tr>
+            <th>Order ID</th>
+            <th>Customer</th>
+            <th>Dish</th>
+            <th>Qty</th>
+            <th>Price</th>
+            <th>Total</th>
+            <th>Time</th>
+        </tr>
+        <tr>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
+        </tr>
+    </table>
 
     <h2>Import Orders from XML</h2>
     <button>Import XML Orders</button>
+    <script src="scripts.js"></script>
 </body>
 </html>
