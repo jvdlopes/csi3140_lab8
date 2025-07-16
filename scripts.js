@@ -1,7 +1,12 @@
 var table = document.getElementById("tableID");
 var tableLength = 1;
 var orders = [];
-
+var fries = 3.00;
+var grilled = 21.00;
+var ice = 3.50;
+var lemonade = 2.50;
+var tomato = 4.50;
+var vegetable = 6.00;
     
 
 function renderList(){
@@ -25,6 +30,7 @@ function renderList(){
 
     for(var x = 0; x< orders.length;x++){
         var currOrder = orders[x];
+        window.alert("");
         var row = table.insertRow(tableLength);
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
@@ -38,7 +44,7 @@ function renderList(){
         cell3.innerHTML = currOrder.dish;
         cell4.innerHTML = currOrder.qty;
         cell5.innerHTML = currOrder.price;
-        cell6.innerHTML = currOrder.total;
+        cell6.innerHTML = (currOrder.price * currOrder.qty).toFixed(2);
         cell7.innerHTML = currOrder.time;
         tableLength++;
     }
@@ -60,22 +66,22 @@ function placeOrder(){
     var qtyNum = Number(quantity.value);
 
     if(dish.value == 1){
-        var price = 3.00;
+        var price = fries;
     }
     else if(dish.value == 2){
-        var price = 21.00;
+        var price = grilled;
     }
     else if(dish.value == 3){
-        var price = 3.50;
+        var price = ice;
     }
     else if(dish.value == 4){
-        var price = 2.50;
+        var price = lemonade;
     }
     else if(dish.value == 5){
-        var price = 4.50;
+        var price = tomato;
     }
     else if(dish.value == 6){
-        var price = 10.00;
+        var price = vegetable;
     }
 
     var total = price * qtyNum;
@@ -146,4 +152,35 @@ async function exportXML(){
     })
 
     
+}
+
+function editList(){
+    var currdish = document.getElementById("dishID");
+    var newPrice = document.getElementById("priceID");
+    if(currdish.value == 1){
+        fries = newPrice.value;
+    }
+    else if(currdish.value == 2){
+        grilled = newPrice.value;
+    }
+    else if(currdish.value == 3){
+        ice = newPrice.value;
+    }
+    else if(currdish.value == 4){
+        lemonade = newPrice.value;
+    }
+    else if(currdish.value == 5){
+        tomato = newPrice.value;
+    }
+    else if(currdish.value == 6){
+        vegetable = newPrice.value;
+    }
+
+    for(var x = 0; x<orders.length;x++){
+        if(orders[x].dish ==currdish.value){
+            orders[x].price = newPrice.value;
+        }
+    }
+
+    renderList();
 }
