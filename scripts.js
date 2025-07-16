@@ -5,7 +5,6 @@ var orders = [];
     
 
 function renderList(){
-    window.alert(orders.length);
     table.innerHTML = "";
     tableLength = 1;
     var row = table.insertRow(0);
@@ -56,13 +55,9 @@ document.addEventListener("DOMContentLoaded", function(e) {
 });
 function placeOrder(){
     var name = document.getElementById("customerName");
-    //window.alert(name.value);
     var dish = document.getElementById("selectedDish");
-    
-    //window.alert(dish.value);
     var quantity = document.getElementById("quantityID");
     var qtyNum = Number(quantity.value);
-    //window.alert(quantity.value);
 
     if(dish.value == 1){
         var price = 3.00;
@@ -85,19 +80,32 @@ function placeOrder(){
 
     var total = price * qtyNum;
 
-    var d = new Date();
+    var d = getLocalISODateTime();
 
-    var temp = {id: orders.length, 
+    var temp = {id: orders.length +1, 
         customer: name.value,
         dish: dish.value,
         qty: qtyNum, 
         price: price, 
         total: total,
-        time: d.getTime()};
-    window.alert("made it here");
+        time: d};
     orders.push(temp);
     
     renderList();
+}
+
+function getLocalISODateTime() {
+  const now = new Date();
+
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, '0'); // months are 0-indexed
+  const day = String(now.getDate()).padStart(2, '0');
+
+  const hours = String(now.getHours()).padStart(2, '0');
+  const minutes = String(now.getMinutes()).padStart(2, '0');
+  const seconds = String(now.getSeconds()).padStart(2, '0');
+
+  return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
 }
 
 async function exportXML(){
@@ -115,14 +123,15 @@ async function exportXML(){
         let xmlDoc = parser.parseFromString(XMLtext,'text/xml');
         let ordersFromDoc = xmlDoc.getElementsByTagName('Order');
     for (let i = 0; i < ordersFromDoc.length; i++) {
-        
-        var temp = {id: ordersFromDoc[i].children[0].innerHTML, 
-            customer: ordersFromDoc[i].children[1].innerHTML,
-            dish: ordersFromDoc[i].children[2].innerHTML,
-            qty: ordersFromDoc[i].children[3].innerHTML, 
-            price: ordersFromDoc[i].children[4].innerHTML, 
-            total: ordersFromDoc[i].children[5].innerHTML,
-            time: ordersFromDoc[i].children[6].innerHTML};
+        var tempprice = ordersFromDoc[i].children[3].innerHTML;
+        var tempqty = ordersFromDoc[i].children[2].innerHTML;
+        var temp = {id: orders.length+1, 
+            customer: ordersFromDoc[i].children[0].innerHTML,
+            dish: ordersFromDoc[i].children[1].innerHTML,
+            qty: ordersFromDoc[i].children[2].innerHTML, 
+            price: ordersFromDoc[i].children[3].innerHTML, 
+            total: (tempprice*tempqty).toFixed(2),
+            time: ordersFromDoc[i].children[4].innerHTML};
 
             orders.push(temp);
             

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    elementFormDefault="qualified">
+
+    <!-- Root element: Orders -->
+    <xs:element name="Orders">
+        <xs:complexType>
+        <xs:sequence>
+            <xs:element name="Order" maxOccurs="unbounded">
+            <xs:complexType>
+                <xs:sequence>
+                <xs:element name="Customer" type="xs:string"/>
+
+                <xs:element name="Dish">
+                    <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="1"/>
+                        <xs:maxInclusive value="6"/>
+                    </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+
+                <xs:element name="Qty">
+                    <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:minExclusive value="0"/>
+                    </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+
+                <xs:element name="Price">
+                    <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="^\$\d+(\.\d+)?$"/>
+                    </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+
+                <xs:element name="Time" type="xs:dateTime"/>
+                </xs:sequence>
+            </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
