@@ -30,7 +30,6 @@ function renderList(){
 
     for(var x = 0; x< orders.length;x++){
         var currOrder = orders[x];
-        window.alert("");
         var row = table.insertRow(tableLength);
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
@@ -41,7 +40,28 @@ function renderList(){
         var cell7 = row.insertCell(6);
         cell1.innerHTML = currOrder.id;
         cell2.innerHTML = currOrder.customer;
-        cell3.innerHTML = currOrder.dish;
+
+        if(currOrder.dish == 1){
+            cell3.innerHTML = "Fries";
+        }
+        else if(currOrder.dish == 2){
+            cell3.innerHTML = "<td>Grilled Chicken</td>";
+        }
+        else if(currOrder.dish == 3){
+            cell3.innerHTML = "Ice Cream";
+        }
+        else if(currOrder.dish == 4){
+            cell3.innerHTML = "Lemonade";
+        }
+        else if(currOrder.dish == 5){
+            cell3.innerHTML = "Tomato Soup";
+        }
+        else if(currOrder.dish == 6){
+            cell3.innerHTML = "Vegetable Lasagna";
+        }
+
+        
+        
         cell4.innerHTML = currOrder.qty;
         cell5.innerHTML = currOrder.price;
         cell6.innerHTML = (currOrder.price * currOrder.qty).toFixed(2);
@@ -64,7 +84,6 @@ function placeOrder(){
     var dish = document.getElementById("selectedDish");
     var quantity = document.getElementById("quantityID");
     var qtyNum = Number(quantity.value);
-
     if(dish.value == 1){
         var price = fries;
     }
@@ -101,17 +120,17 @@ function placeOrder(){
 }
 
 function getLocalISODateTime() {
-  const now = new Date();
+    const now = new Date();
 
-  const year = now.getFullYear();
-  const month = String(now.getMonth() + 1).padStart(2, '0'); // months are 0-indexed
-  const day = String(now.getDate()).padStart(2, '0');
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0'); // months are 0-indexed
+    const day = String(now.getDate()).padStart(2, '0');
 
-  const hours = String(now.getHours()).padStart(2, '0');
-  const minutes = String(now.getMinutes()).padStart(2, '0');
-  const seconds = String(now.getSeconds()).padStart(2, '0');
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
 
-  return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
+    return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
 }
 
 async function exportXML(){

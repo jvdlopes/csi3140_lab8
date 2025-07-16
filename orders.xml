@@ -4,49 +4,49 @@
 <Orders>
     <Order>
         <Customer>Lina</Customer>
-        <Dish>Grilled Chicken</Dish>
+        <Dish>2</Dish>
         <Qty>2</Qty>
         <Price>21.00</Price>
         <Time>2025-07-05T11:20:00</Time>
     </Order>
     <Order>
         <Customer>Carlos</Customer>
-        <Dish>Lemonade</Dish>
+        <Dish>4</Dish>
         <Qty>2</Qty>
         <Price>2.50</Price>
         <Time>2025-07-04T16:50:00</Time>
     </Order>
     <Order>
         <Customer>Zoe</Customer>
-        <Dish>Tomato Soup</Dish>
+        <Dish>5</Dish>
         <Qty>1</Qty>
         <Price>4.50</Price>
         <Time>2025-07-04T09:05:00</Time>
     </Order>
     <Order>
         <Customer>Ethan</Customer>
-        <Dish>Lemonade</Dish>
+        <Dish>4</Dish>
         <Qty>1</Qty>
         <Price>2.50</Price>
         <Time>2025-07-03T12:00:00</Time>
     </Order>
     <Order>
         <Customer>Priya</Customer>
-        <Dish>Grilled Chicken</Dish>
+        <Dish>2</Dish>
         <Qty>3</Qty>
         <Price>21.00</Price>
         <Time>2025-07-02T18:30:00</Time>
     </Order>
     <Order>
         <Customer>Marcus</Customer>
-        <Dish>Vegetable Lasagna</Dish>
+        <Dish>6</Dish>
         <Qty>1</Qty>
         <Price>10.00</Price>
         <Time>2025-07-02T13:45:00</Time>
     </Order>
     <Order>
         <Customer>Olivia</Customer>
-        <Dish>Tomato Soup</Dish>
+        <Dish>5</Dish>
         <Qty>2</Qty>
         <Price>4.50</Price>
         <Time>2025-07-01T10:15:00</Time>
