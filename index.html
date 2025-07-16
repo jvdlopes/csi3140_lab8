@@ -19,10 +19,15 @@
         <input type="text" placeholder="Customer Name" id="customerName">
         <select name="" id="selectedDish">
             <option style="display: none;" selected value="">Selected Dish</option>
-            <option value="">fries</option>
+            <option value="1">Fries</option>
+            <option value="2">Grilled Chicken</option>
+            <option value="3">Ice Cream</option>
+            <option value="4">Lemonade</option>
+            <option value="5">Tomato Soup</option>
+            <option value="6">Vegetable Lasagna</option>
         </select>
         <input type="text" placeholder="Quantity" id="quantityID">
-        <button onclick="placeOrder()">Place Order</button>
+        <button type="button" onclick="placeOrder()">Place Order</button>
     </form>
     
     <h2>Order History</h2>
@@ -48,7 +53,7 @@
     </table>
 
     <h2>Import Orders from XML</h2>
-    <button>Import XML Orders</button>
+    <button onclick="exportXML()">Import XML Orders</button>
     <script src="scripts.js"></script>
 </body>
 </html>
